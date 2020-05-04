@@ -4,7 +4,7 @@ module.exports = {
     description:
       'Retro is a modern stylish one page resume template built using React and Gatsby',
   },
-  pathPrefix: '/portfolio',
+  pathPrefix: '/portfolio_',
   plugins: [
     {
       resolve: 'gatsby-source-filesystem',
