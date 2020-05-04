@@ -27,20 +27,20 @@ workbox.core.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-724851c0381986470b25.js"
+    "url": "webpack-runtime-db137cf5555eec885e53.js"
   },
   {
     "url": "commons-eace109f0f34e5db2421.js"
   },
   {
-    "url": "app-fa305cb15f8f97ca5995.js"
+    "url": "app-09b86c7fcfb30b8977db.js"
   },
   {
     "url": "component---node-modules-gatsby-plugin-offline-app-shell-js-408ee90bf2bc3417ae93.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "6c0648b48b45732913a8dc19ca52fcce"
+    "revision": "e24ba222ab9c6eedd6a7dfd4fdda89ce"
   },
   {
     "url": "page-data/offline-plugin-app-shell-fallback/page-data.json",
@@ -48,7 +48,7 @@ self.__precacheManifest = [
   },
   {
     "url": "page-data/app-data.json",
-    "revision": "8de05d438ab561f89b97b27d75b0d866"
+    "revision": "ea1cfeb4eed323a4c5202a00868f09d5"
   },
   {
     "url": "manifest.json",
@@ -140,12 +140,12 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
   lastNavigationRequest = event.request.url
 
   let { pathname } = new URL(event.request.url)
-  pathname = pathname.replace(new RegExp(`^/portfolio_`), ``)
+  pathname = pathname.replace(new RegExp(`^/portfolio`), ``)
 
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/portfolio_/app-fa305cb15f8f97ca5995.js`))) {
+  if (!resources || !(await caches.match(`/portfolio/app-09b86c7fcfb30b8977db.js`))) {
     return await fetch(event.request)
   }
 
@@ -158,7 +158,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
     }
   }
 
-  const offlineShell = `/portfolio_/offline-plugin-app-shell-fallback/index.html`
+  const offlineShell = `/portfolio/offline-plugin-app-shell-fallback/index.html`
   const offlineShellWithKey = workbox.precaching.getCacheKeyForURL(offlineShell)
   return await caches.match(offlineShellWithKey)
 })
